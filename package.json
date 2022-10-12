@@ -1,7 +1,7 @@
 {
   "name": "highcharts",
   "version": "0.1.0",
-  "homepage": "https://junw3i.github.io/highcharts-playground/",
+  "homepage": "https://junw3i.github.io/highcharts-playground",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

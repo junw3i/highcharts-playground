@@ -28,19 +28,12 @@ const Chart = () => {
       showAxes: false,
     },
     xAxis: {
-      // title: { text: undefined },
-      // labels: {
-      //   enabled: true,
-      // },
       labels: {
-        // style: { color: colors.slateus400 },
         enabled: false,
       },
       type: 'datetime',
       tickWidth: 0,
       lineWidth: 0,
-      // minPadding: 0.04,
-      // maxPadding: 0.04,
     },
     yAxis: {
       title: { text: undefined },
@@ -109,51 +102,50 @@ const Chart = () => {
           xAxis: {
             ...prevState.xAxis,
             min: data[0][0] - (data[data.length - 1][0] - data[0][0]) * 0.02,
-            plotLines: [
-              {
-                id: 'eth-start-date',
-                value: data[0][0],
-                color: '#8991ad',
-                width: 1,
-                label: {
-                  x: 10,
-                  y: 54,
-                  style: { color: '#8991ad' },
-                  align: 'center',
-                  useHTML: true,
-                  formatter: () => `
-                    <div class="flex">
-                      <div class="font-roboto font-light text-slateus-200">
-                      start date
-                      </div>
-                    </div>
-                  `,
-                },
-              },
-            ],
+            // plotLines: [
+            //   {
+            //     id: 'eth-start-date',
+            //     value: data[0][0],
+            //     color: '#8991ad',
+            //     width: 1,
+            //     label: {
+            //       x: 10,
+            //       y: 54,
+            //       style: { color: '#8991ad' },
+            //       align: 'center',
+            //       useHTML: true,
+            //       formatter: () => `
+            //         <div class="flex">
+            //           <div class="font-roboto font-light text-slateus-200">
+            //           start date
+            //           </div>
+            //         </div>
+            //       `,
+            //     },
+            //   },
+            // ],
           },
           yAxis: {
             ...prevState.yAxis,
             min: min - (max - min) * 0.07,
-            plotLines: [
-              {
-                id: 'eth-start-date',
-                value: min - (max - min) * 0.02,
-                color: '#8991ad',
-                width: 1,
-              },
-            ],
+            // plotLines: [
+            //   {
+            //     id: 'eth-start-date',
+            //     value: min - (max - min) * 0.02,
+            //     color: '#8991ad',
+            //     width: 1,
+            //   },
+            // ],
           },
         }))
       })
   }, [])
 
-  // if (options.series[0].data.length === 0) return null
-  // options.series[0].data = data
-  console.log(chartData)
+  // console.log(chartData)
 
   return (
-    <div className="max-w-screen-lg mx-auto my-10 bg-darky-200 flex flex-col p-8 rounded-lg">
+    <div className="max-w-screen-lg mx-auto my-10 bg-darky-200 flex flex-col p-8 rounded-lg relative">
+      <div className="absolute w-9/12 h-5/6 opacity-[0.25] left-[12%] bg-darky-100  blur-[100px]"></div>
       <div className="m-2 font-roboto text-greyish font-light text-m tracking-widest">
         PRICE OF ETH
       </div>

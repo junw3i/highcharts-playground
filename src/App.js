@@ -3,7 +3,7 @@ import Chart from './components/Chart'
 
 function App() {
   return (
-    <div className="">
+    <div className="px-4 sm:px-0">
       <Chart />
     </div>
   )

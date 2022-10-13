@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import BigNumber from 'bignumber.js'
+import { formatInTimeZone } from 'date-fns-tz'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
@@ -19,7 +21,7 @@ function scrub(d) {
 const Chart = () => {
   const [chartData, setChartData] = useState({
     title: {
-      text: 'My chart',
+      text: '',
     },
     chart: {
       backgroundColor: 'transparent',
@@ -57,6 +59,23 @@ const Chart = () => {
     series: [
       {
         data: [],
+        type: 'line',
+        shadow: {
+          color: 'rgba(75, 144, 219, 0.2)',
+          width: 15,
+        },
+        color: {
+          linearGradient: {
+            x1: 0,
+            y1: 0,
+            x2: 1,
+            y2: 0,
+          },
+          stops: [
+            [0, '#00FFFB'],
+            [1, '#5487F4'],
+          ],
+        },
       },
     ],
   })
@@ -70,6 +89,23 @@ const Chart = () => {
         setChartData(prevState => ({
           ...prevState,
           series: [{ data }],
+          tooltip: {
+            backgroundColor: 'transparent',
+            useHTML: true,
+            borderWidth: 0,
+            shadow: false,
+            formatter: function () {
+              const dt = new Date(this.x)
+              const formattedDate = formatInTimeZone(dt, 'UTC', 'dd MMM yyyy')
+              const price = new BigNumber(this.y)
+              return `
+            <div class="font-roboto bg-darky-200 p-4 rounded-lg border border-greyish">
+            <div class="text-greyish">${formattedDate}</div>
+            <div class="text-white">$${price.toFormat(2)}</div>
+            </div>
+          `
+            },
+          },
           xAxis: {
             ...prevState.xAxis,
             min: data[0][0] - (data[data.length - 1][0] - data[0][0]) * 0.02,
@@ -117,8 +153,10 @@ const Chart = () => {
   console.log(chartData)
 
   return (
-    <div className="max-w-screen-lg mx-auto my-10 bg-darky-200">
-      {/* <div className="max-w-screen-lg mx-auto my-10"> */}
+    <div className="max-w-screen-lg mx-auto my-10 bg-darky-200 flex flex-col p-8 rounded-lg">
+      <div className="m-2 font-roboto text-greyish font-light text-m tracking-widest">
+        PRICE OF ETH
+      </div>
       <HighchartsReact highcharts={Highcharts} options={chartData} />
     </div>
   )

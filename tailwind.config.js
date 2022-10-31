@@ -11,7 +11,10 @@ module.exports = {
           300: '#141B2B',
         },
         greeny: '#36df90',
-        greyish: '#8991ad',
+        greyish: {
+          100: '#CFD3DE',
+          200: '#a0a7bd',
+        },
       },
       fontFamily: {
         roboto: ['Roboto Mono', 'monospace'],

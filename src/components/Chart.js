@@ -92,8 +92,8 @@ const Chart = () => {
               const formattedDate = formatInTimeZone(dt, 'UTC', 'dd MMM yyyy')
               const price = new BigNumber(this.y)
               return `
-            <div class="font-roboto bg-darky-200 p-4 rounded-lg border border-greyish">
-            <div class="text-greyish">${formattedDate}</div>
+            <div class="bg-darky-200 p-4 rounded-lg border border-greyish-200">
+            <div class="text-greyish-200">${formattedDate}</div>
             <div class="text-white">$${price.toFormat(2)}</div>
             </div>
           `
@@ -146,7 +146,7 @@ const Chart = () => {
   return (
     <div className="max-w-screen-lg mx-auto my-10 bg-darky-200 flex flex-col p-8 rounded-lg relative">
       <div className="absolute w-9/12 h-5/6 opacity-[0.25] left-[12%] bg-darky-100  blur-[100px]"></div>
-      <div className="m-2 font-roboto text-greyish font-light text-m tracking-widest">
+      <div className="m-2 text-greyish-100 font-bold text-m tracking-widest">
         PRICE OF ETH
       </div>
       <HighchartsReact highcharts={Highcharts} options={chartData} />

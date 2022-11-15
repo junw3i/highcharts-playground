@@ -5,7 +5,7 @@ import useThrottledSelector from '../hooks/useThrottledSelector'
 function Value({ opts }) {
   const { key, dp } = opts
   const value = useThrottledSelector(state => state.ws[key], new BigNumber(0))
-  return <td className="text-right w-[100px] cell">{value.toFormat(dp)}</td>
+  return <td className="text-right w-[100px] cell">${value.toFormat(dp)}</td>
 }
 
 export function MarketData() {
@@ -14,7 +14,7 @@ export function MarketData() {
       <Header
         content={{
           title: 'Market Data',
-          subtitle: 'Real time pricing and volume from top exchanges',
+          subtitle: 'Real time pricing and volume from Coinbase',
         }}
       />
       <div className="bg-darky-300 text-white">

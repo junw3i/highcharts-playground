@@ -467,6 +467,7 @@ function buildOrderBook(booksData, currentPrice) {
       if (priceBN.gt(currentPrice)) {
         // add to asks
         const tvl = new BigNumber(bookData[i].tvlToken1).times(priceBN)
+        // console.log(priceBN.toFixed(), bookData[i].tvlToken1, tvl.toFixed())
         if (roundedPriceStr in asks) {
           asks[roundedPrice].total = asks[roundedPrice].total.plus(tvl)
           if (bps in asks[roundedPrice]) {
@@ -561,7 +562,7 @@ export function* queryUniswap() {
       currentPrice
     )
 
-    console.log(orderBook)
+    // console.log(orderBook)
 
     yield put(updateOrderbook(orderBook))
     yield put(updateCurrentPrice(currentPrice))

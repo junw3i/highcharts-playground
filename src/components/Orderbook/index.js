@@ -6,8 +6,8 @@ export function Orderbook() {
     <div className="flex flex-col bg-darky-200">
       <Header
         content={{
-          title: 'Orderbook',
-          subtitle: 'Aggreated ETH/USD Uniswap liquidity from the highest 3 pools',
+          title: 'Uniswap Orderbook',
+          subtitle: 'Aggreated ETH/USD Uniswap liquidity from the highest 2 pools',
         }}
       />
       <OrderbookTable />

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 
 function renderRows(x, bid, ask) {
   return (
-    <tr>
+    <tr key={`${x}-ob`}>
       <td className="text-right compactCell">
         {bid ? `${bid.liquidity.total.div(1000).toFormat(0)}k` : ''}
       </td>
@@ -26,7 +26,7 @@ export function OrderbookTable() {
     rows.push(renderRows(i, bid, ask))
   })
   return (
-    <div className=" bg-darky-300 text-white max-h-[400px] overflow-y-auto w-fit">
+    <div className=" bg-darky-300 text-white h-[400px] overflow-y-auto w-fit">
       <table>
         <tbody>
           <tr className="sticky top-0 bg-darky-300">

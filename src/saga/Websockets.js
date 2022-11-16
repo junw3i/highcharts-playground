@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { eventChannel, throttle } from 'redux-saga'
+import { eventChannel } from 'redux-saga'
 import { put, take, call } from 'redux-saga/effects'
 import {
   updateCBETHPrice,

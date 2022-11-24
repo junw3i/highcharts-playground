@@ -4,7 +4,7 @@
   "homepage": "https://junw3i.github.io/highcharts-playground",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.7.0",
+    "@apollo/client": "^3.7.1",
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

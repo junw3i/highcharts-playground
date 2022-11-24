@@ -2,7 +2,7 @@ import Header from '../common/Header'
 import { useSelector } from 'react-redux'
 
 function renderRow(row, i) {
-  const { name, exchange, margin, next_apr, last_apr } = row
+  const { name, exchange, margin, next_apr, last_apr, avg_apr } = row
   return (
     <tr key={`${i}-funding`}>
       <td className="cell">{name}</td>
@@ -10,6 +10,7 @@ function renderRow(row, i) {
       <td className="cell">{margin}</td>
       <td className="cell text-right">{next_apr}%</td>
       <td className="cell text-right">{last_apr}%</td>
+      <td className="cell text-right">{avg_apr}%</td>
     </tr>
   )
 }
@@ -27,14 +28,17 @@ export function Funding() {
         }}
       />
       <table className="cell bg-darky-300 text-white">
-        <tr>
-          <th className="cell text-left">NAME</th>
-          <th className="cell text-left">EXCHANGE</th>
-          <th className="cell text-left">MARGIN</th>
-          <th className="cell text-right">NEXT APR</th>
-          <th className="cell text-right">LAST APR</th>
-        </tr>
-        {rows}
+        <thead>
+          <tr>
+            <th className="cell text-left">NAME</th>
+            <th className="cell text-left">EXCHANGE</th>
+            <th className="cell text-left">MARGIN</th>
+            <th className="cell text-right">NEXT APR</th>
+            <th className="cell text-right">LAST APR</th>
+            <th className="cell text-right">AVG APR</th>
+          </tr>
+        </thead>
+        <tbody>{rows}</tbody>
       </table>
     </div>
   )

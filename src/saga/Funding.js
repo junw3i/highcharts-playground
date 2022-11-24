@@ -15,6 +15,7 @@ function* queryFunding() {
     ...row,
     next_apr: new BigNumber(row.next_apr).toFormat(2),
     last_apr: new BigNumber(row.last_apr).toFormat(2),
+    avg_apr: new BigNumber(row.avg_apr).toFormat(2),
   }))
   yield put(updateFunding(formattedData))
 }

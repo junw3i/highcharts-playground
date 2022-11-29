@@ -16,8 +16,7 @@ function renderRow(row, i) {
 }
 
 export function Funding() {
-  const selectorData = useSelector(state => state.funding)
-  const { data } = selectorData
+  const data = useSelector(state => state.data.funding)
   const rows = data.map(renderRow)
   return (
     <div className="flex flex-col">

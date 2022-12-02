@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import websocketsReducer from './Websockets'
 import UniswapReducer from './Uniswap'
+import LidoReducer from './Lido'
 import DataReducer from './Data'
 import createSagaMiddleware from 'redux-saga'
 import { rootSaga } from '..'
@@ -13,6 +14,7 @@ const reducer = combineReducers({
   ws: websocketsReducer,
   uniswap: UniswapReducer,
   data: DataReducer,
+  lido: LidoReducer,
 })
 
 export const store = configureStore({

@@ -11,9 +11,10 @@ import {
 function initWebsocket() {
   return eventChannel(emitter => {
     const ws = new WebSocket('wss://ws-feed.pro.coinbase.com')
+
     // const ws = new WebSocket('wss://fstream.binance.com/stream?streams=btcusdt@aggTrade')
     ws.onopen = () => {
-      console.log(`${new Date()}: connecting to coinbase ws...`)
+      console.log(`${new Date()}: connected to coinbase ws...`)
       const message = {
         type: 'subscribe',
         channels: ['matches'],

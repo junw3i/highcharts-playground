@@ -6,6 +6,7 @@ import MarketData from './components/MarketData'
 import Orderbook from './components/Orderbook'
 import Funding from './components/Funding'
 import StEth from './components/StEth'
+import Stride from './components/Stride'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <div className="flex flex-col sm:flex-row">
           <MarketData />
           <StEth />
+          <Stride />
         </div>
         <div className="flex flex-col sm:flex-row">
           <Funding />

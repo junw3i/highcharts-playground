@@ -26,19 +26,21 @@ export function Funding() {
           subtitle: 'Annualized Funding Rates for ETH Perptuals',
         }}
       />
-      <table className="cell bg-darky-300 text-white">
-        <thead>
-          <tr>
-            <th className="cell text-left">NAME</th>
-            <th className="cell text-left">EXCHANGE</th>
-            <th className="cell text-left">MARGIN</th>
-            <th className="cell text-right">NEXT APR</th>
-            <th className="cell text-right">LAST APR</th>
-            <th className="cell text-right">AVG APR</th>
-          </tr>
-        </thead>
-        <tbody>{rows}</tbody>
-      </table>
+      <div className="overflow-y-auto h-[500px]">
+        <table className="cell bg-darky-300 text-white">
+          <thead>
+            <tr>
+              <th className="cell text-left">NAME</th>
+              <th className="cell text-left">EXCHANGE</th>
+              <th className="cell text-left">MARGIN</th>
+              <th className="cell text-right">NEXT APR</th>
+              <th className="cell text-right">LAST APR</th>
+              <th className="cell text-right">AVG APR</th>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </table>
+      </div>
     </div>
   )
 }

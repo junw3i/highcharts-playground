@@ -26,7 +26,7 @@ export function OrderbookTable() {
     rows.push(renderRows(i, bid, ask))
   })
   return (
-    <div className=" bg-darky-300 text-white h-[400px] overflow-y-auto w-fit">
+    <div className=" bg-darky-300 text-white h-[500px] overflow-y-auto w-fit">
       <table>
         <tbody>
           <tr className="sticky top-0 bg-darky-300">

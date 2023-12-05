@@ -1,14 +1,21 @@
+import BigNumber from 'bignumber.js'
 import Header from '../common/Header'
 import { useSelector } from 'react-redux'
+
+function formatNumber(number) {
+  const num = new BigNumber(number)
+  if (num.isNaN()) return '-'
+  return `${num.toFixed(2)}%`
+}
 
 function renderRow(row, id) {
   if (row) {
     return (
       <tr key={id}>
         <td className="cell">{id}</td>
-        <td className="cell text-right">{row.btc}%</td>
-        <td className="cell text-right">{row.eth}%</td>
-        <td className="cell text-right">{row.sol}%</td>
+        <td className="cell text-right">{formatNumber(row.btc)}</td>
+        <td className="cell text-right">{formatNumber(row.eth)}</td>
+        <td className="cell text-right">{formatNumber(row.sol)}</td>
       </tr>
     )
   }
@@ -24,6 +31,7 @@ export function Funding() {
   const dydx_v3 = renderRow(data.dydx_v3, 'dydx_v3')
   const synthetix = renderRow(data.synthetix, 'synthetix')
   const deribit = renderRow(data.deribit, 'deribit')
+  const drift = renderRow(data.drift, 'drift')
   return (
     <div className="flex flex-col">
       <Header
@@ -45,10 +53,11 @@ export function Funding() {
           <tbody>
             {binance_usdt}
             {binance_coin}
+            {deribit}
+            {drift}
+            {dydx_v3}
             {dydx_v4}
             {synthetix}
-            {dydx_v3}
-            {deribit}
           </tbody>
         </table>
       </div>

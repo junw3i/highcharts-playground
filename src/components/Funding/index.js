@@ -32,6 +32,7 @@ export function Funding() {
   const synthetix = renderRow(data.synthetix, 'synthetix')
   const deribit = renderRow(data.deribit, 'deribit')
   const drift = renderRow(data.drift, 'drift')
+  const hyperliquid = renderRow(data.hyperliquid, 'hyperliquid')
   return (
     <div className="flex flex-col">
       <Header
@@ -57,6 +58,7 @@ export function Funding() {
             {drift}
             {dydx_v3}
             {dydx_v4}
+            {hyperliquid}
             {synthetix}
           </tbody>
         </table>

@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   funding: {},
+  oi: {},
 }
 
 export const dataSlice = createSlice({
@@ -11,9 +12,12 @@ export const dataSlice = createSlice({
     updateFunding: (state, action) => {
       state.funding = action.payload
     },
+    updateOI: (state, action) => {
+      state.oi = action.payload
+    },
   },
 })
 
-export const { updateFunding, updateStEth, updateStride } = dataSlice.actions
+export const { updateFunding, updateOI, updateStride } = dataSlice.actions
 
 export default dataSlice.reducer

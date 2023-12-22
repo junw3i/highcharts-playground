@@ -1,6 +1,6 @@
-import BigNumber from 'bignumber.js'
+// import BigNumber from 'bignumber.js'
 import { put, delay, fork } from 'redux-saga/effects'
-import { updateFunding } from './store/Data'
+import { updateFunding, updateOI } from './store/Data'
 
 const fetchFunding = async () => {
   const url = `https://cjw.hosehbo.xyz/funding`
@@ -8,9 +8,16 @@ const fetchFunding = async () => {
   const data = await response.json()
   return data
 }
+const fetchOI = async () => {
+  const url = `https://cjw.hosehbo.xyz/funding/oi`
+  const response = await fetch(url)
+  const data = await response.json()
+  return data
+}
 
 function* queryFunding() {
   const data = yield fetchFunding()
+  const oi = yield fetchOI()
   // console.log(data)
   // const formattedData = data.map(row => ({
   //   ...row,
@@ -19,6 +26,7 @@ function* queryFunding() {
   //   avg_apr: new BigNumber(row.avg_apr).toFormat(2),
   // }))
   yield put(updateFunding(data))
+  yield put(updateOI(oi))
 }
 
 export function* dataSaga() {
@@ -28,7 +36,7 @@ export function* dataSaga() {
     } catch (error) {
       console.error(error)
     } finally {
-      yield delay(60000)
+      yield delay(120000)
     }
   }
 }

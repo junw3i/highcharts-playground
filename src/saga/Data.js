@@ -3,13 +3,13 @@ import { put, delay, fork } from 'redux-saga/effects'
 import { updateFunding, updateOI } from './store/Data'
 
 const fetchFunding = async () => {
-  const url = `https://cjw.hosehbo.xyz/funding`
+  const url = `https://cjw.coconuted.xyz/funding`
   const response = await fetch(url)
   const data = await response.json()
   return data
 }
 const fetchOI = async () => {
-  const url = `https://cjw.hosehbo.xyz/funding/oi`
+  const url = `https://cjw.coconuted.xyz/funding/oi`
   const response = await fetch(url)
   const data = await response.json()
   return data
